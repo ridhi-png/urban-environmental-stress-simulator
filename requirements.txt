@@ -1,7 +1,8 @@
-pandas
 streamlit
-matplotlib
-hypothesis
-python-dotenv
+pandas
+numpy
 google-generativeai
 openai
+altair
+
+
