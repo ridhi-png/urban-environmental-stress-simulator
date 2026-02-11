@@ -1,0 +1,7 @@
+pandas
+streamlit
+matplotlib
+hypothesis
+python-dotenv
+google-generativeai
+openai
