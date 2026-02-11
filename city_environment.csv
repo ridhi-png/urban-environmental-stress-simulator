@@ -1,0 +1,11 @@
+zone,AQI,waste_index,temperature,humidity
+Zone A,171,41,23.8,30
+Zone B,259,21,25.5,57
+Zone C,205,34,20.2,43
+Zone D,233,79,17.8,41
+Zone E,109,80,20.4,55
+Zone F,240,34,32.0,74
+Zone G,274,62,37.1,84
+Zone H,286,72,18.0,50
+Zone I,221,31,26.4,86
+Zone J,160,75,31.4,49

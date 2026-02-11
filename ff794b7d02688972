@@ -1,0 +1,4 @@
+# file: C:\Users\ridhi\OneDrive\Desktop\Microsoft\llm_explainer.py
+# hypothesis_version: 6.141.1
+
+[10.0, 150, 'GEMINI_API_KEY', 'High', 'Moderate', 'OPENAI_API_KEY', 'content', 'gemini-pro', 'gpt-3.5-turbo', 'role', 'timeout', 'user']
