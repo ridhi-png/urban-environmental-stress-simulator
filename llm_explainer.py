@@ -55,29 +55,26 @@ def generate_explanation(zone: str, aqi: float, waste: float, stress_score: floa
     # Fallback template when API is unavailable or fails
     return _generate_fallback_explanation(zone, aqi, waste, stress_score, risk_level)
 
-
 def _call_gemini_api(zone: str, aqi: float, waste: float, stress_score: float, risk_level: str, api_key: str) -> str:
-    """Call Google Gemini API to generate explanation."""
     import google.generativeai as genai
-    
+
     genai.configure(api_key=api_key)
     model = genai.GenerativeModel("gemini-1.5-flash")
 
-    prompt = f"""Analyze the environmental stress for {zone}:
-- Air Quality Index: {aqi}
-- Waste Index: {waste}
-- Stress Score: {stress_score:.2f}
-- Risk Level: {risk_level}
+    prompt = f"""
+    Analyze environmental stress for {zone}.
 
-Provide a brief explanation (2-3 sentences) of the environmental conditions and their implications for residents."""
-    
-    # Generate with 10-second timeout
-    response = model.generate_content(prompt, request_options={'timeout': 10})
+    AQI: {aqi}
+    Waste Index: {waste}
+    Stress Score: {stress_score:.2f}
+    Risk Level: {risk_level}
 
-if hasattr(response, "text") and response.text:
+    Provide a short 2-3 sentence explanation suitable for city officials.
+    """
+
+    response = model.generate_content(prompt)
     return response.text
-else:
-    return _generate_fallback_explanation(zone, aqi, waste, stress_score, risk_level)
+
 
 
 
@@ -118,4 +115,5 @@ def _generate_fallback_explanation(zone: str, aqi: float, waste: float, stress_s
         base += "Current conditions are within acceptable ranges, but continued monitoring is recommended."
     
     return base
+
 
